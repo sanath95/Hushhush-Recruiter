@@ -1,0 +1,15 @@
+{
+    "search_repos_between_dates_url" : "https://api.github.com/search/repositories?q=template:false+fork:true+created:{}..{}&per_page=100",
+    "search_repos_for_today_url" : "https://api.github.com/search/repositories?q=template:false+fork:true+created:>{}&per_page=100",
+    "get_a_user_url" : "https://api.github.com/users/{}",
+    "start_date" : "2024-03-05",
+    "end_date" : "2024-03-11",
+    "frequency" : "24h",
+    "batch_size": 5,
+    "columns_to_drop" : ["id", "node_id", "name", "private", "description", "fork", "created_at", "updated_at", "pushed_at", "homepage", "archived", "disabled", 
+                        "license", "allow_forking", "is_template", "web_commit_signoff_required", "visibility", "default_branch", "permissions", "watchers", 
+                        "full_name", "forks", "open_issues"],
+    "columns_for_label_encoding" : ["has_issues", "has_projects", "has_downloads", "has_wiki", "has_pages", "has_discussions"],
+    "columns_to_calculate_average" : ["size", "stargazers_count", "watchers_count", "has_issues", "has_projects", "has_downloads", "has_wiki", "has_pages", 
+                        "has_discussions", "forks_count", "open_issues_count", "score"]
+}

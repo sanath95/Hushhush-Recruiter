@@ -1,0 +1,125 @@
+version: '3'
+services:
+  hush_hush_db:
+    image: postgres:alpine
+    restart: always
+    container_name: db
+    environment:
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB
+    ports:
+      - "5432:5432"
+    networks:
+      - hushhush_network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "localhost", "-p", "5432"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pg_admin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: $PGADMIN_DEFAULT_EMAIL
+      PGADMIN_DEFAULT_PASSWORD: $PGADMIN_DEFAULT_PASSWORD
+    ports:
+      - "82:80"
+    networks:
+      - hushhush_network
+    depends_on:
+      hush_hush_db:
+        condition: service_healthy
+
+  machine_learning:
+    build: 
+      context: Machine Learning
+    image: bhupendrajogi/machine_learning:v1
+    container_name: machine_learning
+    depends_on:
+      hush_hush_db:
+        condition: service_healthy
+    networks:
+      - hushhush_network
+    environment:
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB
+      POSTGRES_HOST: $POSTGRES_HOST
+      POSTGRES_PORT: $POSTGRES_PORT
+      GITHUB_PAT: $GITHUB_PAT
+    volumes:
+      - selection:/selection/outputs
+
+  candidate_selection:
+    build: 
+      context: Candidate Selection
+    image: bhupendrajogi/candidate_selection:v1
+    container_name: candidate_selection
+    depends_on:
+      hush_hush_db:
+        condition: service_healthy
+    networks:
+      - hushhush_network
+    stop_signal: SIGINT
+    ports:
+      - '8001:8001'
+    environment:
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB
+      POSTGRES_HOST: $POSTGRES_HOST
+      POSTGRES_PORT: $POSTGRES_PORT
+    volumes:
+      - selection:/selection/outputs
+
+  # coding_app:
+  #   build:
+  #     context: Final_CT_HHR
+  #   image: bhupendrajogi/coding_app:v1
+  #   container_name: coding_app
+  #   depends_on:
+  #     hush_hush_db:
+  #       condition: service_healthy
+  #   networks:
+  #     - hushhush_network
+  #   stop_signal: SIGINT
+  #   ports:
+  #     - '8002:8002'
+  #   environment:
+  #     POSTGRES_USER: $POSTGRES_USER
+  #     POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+  #     POSTGRES_DB: $POSTGRES_DB
+  #     POSTGRES_HOST: $POSTGRES_HOST
+  #     POSTGRES_PORT: $POSTGRES_PORT
+
+  # recruiter_app:
+  #   build:
+  #     context: frontend-rec-hr
+  #   image: bhupendrajogi/recruiter_app:v1
+  #   container_name: recruiter_app
+  #   depends_on:
+  #     hush_hush_db:
+  #       condition: service_healthy
+  #   networks:
+  #     - hushhush_network
+  #   stop_signal: SIGINT
+  #   ports:
+  #     - '8003:8003'
+  #   environment:
+  #     POSTGRES_USER: $POSTGRES_USER
+  #     POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+  #     POSTGRES_DB: $POSTGRES_DB
+  #     POSTGRES_HOST: $POSTGRES_HOST
+  #     POSTGRES_PORT: $POSTGRES_PORT
+
+networks:
+  hushhush_network:
+
+volumes:
+  pgdata:
+  selection:

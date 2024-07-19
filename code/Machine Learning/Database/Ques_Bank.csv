@@ -1,0 +1,17 @@
+question,ques_tag
+"Write a program to generate the Fibonacci sequence up to n terms, where n is 11 (expected output: 0 1 1 2 3 ... 55)",python
+"Write a Python program to reverse a string without using any built-in functions. The string being Inheritance. (expected output: ecitarehtnI)",python
+"Write a Python program to sort a dictionary by its values in ascending order. Use dict = {'apple': 5, 'banana': 3, 'orange': 8, 'grape': 2}. (expected output: {'grape': 2, 'banana': 3, 'apple': 5, 'orange': 8})",python
+"Write a Python program to merge two lists into a dictionary, where the first list contains the keys and the second list contains the values. Where list_1 = ['name', 'age', 'city'] and list_2 = ['John', 25, 'New York']. (expected output: {'name': 'John', 'age': 25, 'city': 'New York'})",python
+"Write a Java program to calculate the sum of all elements in an integer array. use 5, 12, 8, 3, 20, 15, 7 in the array.",java
+"Write a Java method to perform a binary search on a sorted array of integers. Integers being 2, 5, 8, 12, 16, 23, 38, 45, 50 and target element is 16. expected output: 16 found at index: x where x is the index value.",java
+"Write a program that calculates the simple interest on a principal amount = 1000, rate of interest=5, and time period=3.",java
+"Write a program to find duplicate values in a given array of integers and remove them from the array. Array being arr = [3, 7, 2, 3, 8, 5, 2, 9, 7, 5].",java
+"Write a C++ program to calculate the sum of all elements in an array. Take the array elements as 65, 78, 98, 34, 5, 0",c++
+"Write a program that prints the numbers from 1 to 100 using a for loop.",c++
+"Create a C++ class named 'Book' with attributes for title, author, and pages. Write a method to print book details. Expected output:   Title: The Great Gatsby, Author: F. Scott Fitzgerald, Pages: 180.",c++
+"Write a C++ code to find factorial of 10.",c++
+"Write a C# method that returns the nth Fibonacci number. n = 10",c#
+"Write a function to check if a given string is a palindrome in C#. Print output as radar is a plaindrome if it is, radar is not a palindrome. Use string = 'radar'.",c#
+"Write a C# program to find the maximum value in an integer array. use  5, 12, 8, 3, 20, 15, 7  in the array.",c#
+"Write a c# program to print whether a given number is a prime number or not. Print """"234 is not a prime number"""" or """"234 is a prime number"""" as an output. num = 234.",c#

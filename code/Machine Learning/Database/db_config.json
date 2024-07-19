@@ -1,0 +1,73 @@
+{
+    "tables": {
+        "github": {
+            "owner": "varchar",
+            "size": "float",
+            "stargazers_count": "float",
+            "watchers_count": "float",
+            "language": "varchar",
+            "has_issues": "integer",
+            "has_projects": "integer",
+            "has_downloads": "integer",
+            "has_wiki": "integer",
+            "has_pages": "integer",
+            "has_discussions": "integer",
+            "forks_count": "float",
+            "open_issues_count": "float",
+            "topics": "varchar",
+            "score": "float",
+            "email": "varchar",
+            "followers": "float",
+            "following": "float"
+        },
+        "stackexchange": {
+            "display_name": "varchar",
+            "reputation": "integer",
+            "tb_gold": "integer",
+            "tb_silver": "integer",
+            "tb_bronze": "integer",
+            "tb_badge_names": "varchar"
+        },
+        "candidates": {
+            "owner": "varchar",
+            "size": "float",
+            "stargazers_count": "float",
+            "watchers_count": "float",
+            "language": "varchar",
+            "has_issues": "integer",
+            "has_projects": "integer",
+            "has_downloads": "integer",
+            "has_wiki": "integer",
+            "has_pages": "integer",
+            "has_discussions": "integer",
+            "forks_count": "float",
+            "open_issues_count": "float",
+            "topics": "varchar",
+            "score": "float",
+            "email": "varchar",
+            "followers": "float",
+            "following": "float",
+            "display_name": "varchar",
+            "reputation": "integer",
+            "tb_gold": "integer",
+            "tb_silver": "integer",
+            "tb_bronze": "integer",
+            "tb_badge_names": "varchar"
+        },
+        "prospective": {
+            "name": "varchar",
+            "skills": "varchar",
+            "email": "varchar",
+            "status": "integer",
+            "Q1": "varchar",
+            "Q2": "varchar",
+            "Q3": "varchar",
+            "Q4": "varchar",
+            "selected_role": "varchar"
+        },
+        "ques_bank": {
+            "question": "varchar",
+            "ques_tag": "varchar"
+        }
+    }
+}

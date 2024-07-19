@@ -1,0 +1,6 @@
+{
+    "clustering_features": ["size", "stargazers_count", "forks_count", "open_issues_count", "followers", "following", "reputation", "tb_gold", "tb_silver", "tb_bronze"],
+    "cluster_column_name": "clusters",
+    "classification_features": ["size", "reputation"],
+    "test_size": 0.25
+}

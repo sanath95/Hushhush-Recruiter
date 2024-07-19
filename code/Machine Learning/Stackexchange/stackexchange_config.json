@@ -1,0 +1,8 @@
+{
+    "fetch_user_info": "https://api.stackexchange.com/2.3/users/{ids}?pagesize=100&order=asc&sort=reputation&site=stackoverflow&key=x8nbZ3h6lz6jCh9fdK*Jrw((",
+    "fetch_user_badges": "https://api.stackexchange.com/2.3/users/{ids}/badges?page={page}&pagesize=100&order=asc&min=tag_based&sort=type&site=stackoverflow&key=x8nbZ3h6lz6jCh9fdK*Jrw((",
+    "feature_names": ["Account ID", "Display Name", "Reputation", "T-B_Gold", "T-B_Silver", "T-B_Bronze", "T-B_Badge_Names"],
+    "start_user_id": 1,
+    "end_user_id": 99999,
+    "batch_size": 100
+}
